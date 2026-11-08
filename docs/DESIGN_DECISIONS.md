@@ -1,4 +1,4 @@
-# Design Decisions - LessonForge
+﻿# Design Decisions - LessonForge
 
 Task: build an agentic system that generates a beginner lesson (topic: Introduction to RAG), judges it against hard pass/fail checks,
 and regenerates until it clears the bar or hits a retry cap. Learner: 17-18 yr old Indian 12th-grade graduate, non-English-medium, no technical background.
@@ -43,7 +43,7 @@ Reliability rules for the LLM tier:
 ## 6. Proving the evaluator works (calibration)
 `tests/golden/`: one good lesson + 13 copies each with exactly **one seeded flaw** (long sentence, jargon dump, forward reference, missing glossary entry, missing section, idiom, factual error, unsupported claim, vague example, missing analogy limits, culture reference, missing key concept...).
 - Deterministic tier: 7 flaw types caught by `pytest` (offline, free).
-- LLM tier: `python scripts/calibrate.py` -> `docs/CALIBRATION.md`. **Result: [FILL: catch rate X/Y, false positives Z]**.
+- LLM tier: `python scripts/calibrate.py` -> `docs/CALIBRATION.md`. **Result: not calibrated in this submission because of free-tier daily quota; no catch rate is claimed for the LLM tier.** Observed anecdotally (n=1, not a calibration): in a live sabotage run the judge flagged the injected false claim (A1) and, on the next attempt, an unsupported claim (A2). The deterministic tier is calibrated separately: 7 of 7 seeded flaws caught, 0 false positives (see `docs/CALIBRATION.md`)..
 What calibration actually found (all fixed, all in git history):
 - My reference lesson itself contained 3 sentences that broke my own rules (an absolute claim, an unexplained term, an over-strong "never"); the judge flagged them.
 - A readability average hid a jargon paragraph -> added the worst-window check.
@@ -58,7 +58,7 @@ What calibration actually found (all fixed, all in git history):
 - Strategy: a LAB setup (local Ollama, unlimited) for experiments and a FINAL setup (Gemini) for the deliverable.
 
 ## 8. Known limitations (stated, not hidden)
-- Fact sheet: **[FILL: N of 19 facts human-verified on <date>]**; unverified facts are flagged in every log.
+- Fact sheet: **all 19 facts were marked reviewed on 8 November 2026; 16 have a recorded source URL and the source for F09-F11 is not recorded yet, so those three are the weakest part of the fact sheet.**
 - Thresholds (12 words average, FK 6.5, window 11) were tuned on one reference lesson and a handful of generated ones; small samples only.
 - LLM judges are imperfect even with binary checks and verified quotes; the human-review escalation path exists for that reason.
 - Generator and judge are on different providers but both on free tiers: an outage stops the pipeline (local Ollama is the last-resort generator).
@@ -66,3 +66,4 @@ What calibration actually found (all fixed, all in git history):
 
 ## 9. What I would build next
 Live-retrieval grounding for arbitrary topics; a Hindi/Telugu glossary pass; multi-judge ensembles with disagreement tracking; cost and latency dashboards; embedding-based retrieval of learned rules.
+

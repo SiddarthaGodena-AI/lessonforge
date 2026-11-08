@@ -1,6 +1,6 @@
 # Evaluator Calibration
 
-Mode: deterministic tier only (`--det-only`). Each seeded lesson = the good lesson with exactly ONE flaw.
+Mode: deterministic tier only (`python scripts/calibrate.py --det-only`). Each seeded lesson = the good lesson with exactly ONE flaw.
 The LLM-judge tier was NOT run in this calibration (free-tier daily quota exhausted); its rows are marked NOT RUN, not "missed".
 
 | Seeded flaw | Tier | Expected failing check | Result | Also failed, legitimately | Unexpected failures (false positives) |
@@ -24,6 +24,6 @@ The LLM-judge tier was NOT run in this calibration (free-tier daily quota exhaus
 **False positives:** 0 of 8 evaluated lessons (the GOOD lesson plus the 7 deterministic ones).
 **LLM tier:** 0 of 6 evaluated. No catch rate is claimed.
 
-Supporting evidence, anecdotal (n=1 each, not a calibration): in a live `--sabotage factual` run the judge failed A1 on the injected false claim ("RAG retrains the LLM's weights"), and failed A2 on an unsupported claim on the next attempt. See `outputs/run_20261108_142354/rejection_log.md`.
+Supporting evidence, anecdotal (n=1 each, not a calibration): in a live `--sabotage factual` run the judge failed A1 on the injected false claim ("RAG works by retraining the LLM's weights every time a new document is added"), and failed A2 on an unsupported claim on the next attempt. See `examples/run_sabotage_factual_20261108_142354/rejection_log.md`. That run used fallback models for some attempts (see the log), so it is not comparable with runs on the primary models.
 
 'Also failed, legitimately' = a check that the flaw really does violate. Unexpected failures would be possible false positives.
