@@ -1,0 +1,92 @@
+# LessonForge rubric v1  -- every check is hard PASS/FAIL, no partial credit.
+# Lesson passes ONLY if every check passes. "critical" checks are listed first in
+# the rejection log and get priority in the fix brief.
+version: 1
+audience: "17-18 yr old Indian 12th-grade graduate, non-English-medium, no technical background"
+
+thresholds:            # starting values; calibrate on real beginner text (see docs)
+  max_avg_sentence_words: 12
+  max_sentence_words: 25
+  max_fk_grade: 6.5          # whole-lesson average
+  max_window_fk_grade: 11.0  # worst 4-sentence window (catches local jargon spikes)
+  window_sentences: 4
+  min_words: 600
+  max_words: 1500
+  max_glossary_def_words: 25
+  quiz_questions: 3
+
+structure:             # order matters (check F1/F2)
+  required_sections:
+    - {key: problem,   pattern: "^the problem"}
+    - {key: what,      pattern: "^what is"}
+    - {key: why,       pattern: "^why it matters"}
+    - {key: how,       pattern: "^how it works"}
+    - {key: example,   pattern: "^worked example"}
+    - {key: analogy,   pattern: "^analogy"}
+    - {key: glossary,  pattern: "^glossary"}
+    - {key: mistakes,  pattern: "^common mistakes"}
+    - {key: recap,     pattern: "^recap"}
+    - {key: check,     pattern: "^check your understanding"}
+
+idiom_blacklist:
+  - "piece of cake"
+  - "under the hood"
+  - "out of the box"
+  - "rule of thumb"
+  - "tip of the iceberg"
+  - "in a nutshell"
+  - "game changer"
+  - "game-changer"
+  - "at the end of the day"
+  - "think outside the box"
+  - "bird's-eye view"
+  - "ballpark"
+  - "low-hanging fruit"
+  - "silver bullet"
+  - "deep dive"
+  - "hit the ground running"
+  - "the sky is the limit"
+  - "back to square one"
+  - "needle in a haystack"
+  - "on the same page"
+
+checks:
+  - {id: A1, dimension: accuracy,  critical: true,  method: llm,
+     name: "No claim contradicts the fact sheet",
+     question: "Does any factual claim in the lesson contradict a fact in the fact sheet or a listed misconception?"}
+  - {id: A2, dimension: accuracy,  critical: true,  method: llm,
+     name: "No unsupported technical claim stated as fact",
+     question: "Does the lesson state a specific technical claim (date, name, number, 'always/never/every') that the fact sheet does not support?"}
+  - {id: A3, dimension: accuracy,  critical: false, method: llm,
+     name: "Analogy states where it stops being accurate",
+     question: "Does the lesson say explicitly where the analogy breaks down or differs from real RAG?"}
+  - {id: B1, dimension: language,  critical: false, method: deterministic,
+     name: "Short sentences (avg <= 15 words, none > 25)"}
+  - {id: B2, dimension: language,  critical: false, method: deterministic,
+     name: "Flesch-Kincaid grade <= threshold (whole lesson AND worst 4-sentence window)"}
+  - {id: B3, dimension: language,  critical: false, method: hybrid,
+     name: "No idioms / culture-specific references",
+     question: "Does the lesson use an idiom, slang, or a reference (sport, TV, holiday, brand) a non-English-medium Indian 12th-grader may not know?"}
+  - {id: C1, dimension: jargon,    critical: true,  method: hybrid,
+     name: "Every technical term has a short plain-language definition",
+     question: "Is any technical term used in the lesson (beyond the blueprint terms) left without a plain-language explanation?"}
+  - {id: C2, dimension: jargon,    critical: true,  method: deterministic,
+     name: "No required term used before it is defined (first use is the bold definition)"}
+  - {id: D1, dimension: examples,  critical: true,  method: llm,
+     name: "One end-to-end worked example with concrete input and output",
+     question: "Does the worked example show a specific question, specific retrieved text, and a specific final answer?"}
+  - {id: D2, dimension: examples,  critical: false, method: llm,
+     name: "Analogy from a familiar everyday context",
+     question: "Is the analogy drawn from something a typical Indian 12th-grader has personally experienced?"}
+  - {id: E1, dimension: coverage,  critical: true,  method: deterministic,
+     name: "What / Why / How sections all present"}
+  - {id: E2, dimension: coverage,  critical: true,  method: llm,
+     name: "All blueprint key concepts covered",
+     question: "For each key concept in the blueprint, is it explained somewhere in the lesson? List any missing."}
+  - {id: F1, dimension: flow,      critical: false, method: hybrid,
+     name: "Sections in the required teaching order; no concept depends on a later one",
+     question: "Does any paragraph rely on an idea that is only explained later in the lesson?"}
+  - {id: F2, dimension: flow,      critical: false, method: deterministic,
+     name: "Opens with the problem; ends with recap + exactly 3 check questions"}
+  - {id: L1, dimension: coverage,  critical: false, method: deterministic,
+     name: "Lesson length within range"}

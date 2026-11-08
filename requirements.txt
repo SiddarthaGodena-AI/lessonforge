@@ -1,0 +1,8 @@
+openai>=1.0
+pydantic>=2.0
+textstat>=0.7
+pyyaml
+pytest
+langgraph
+chromadb
+rich

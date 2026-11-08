@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+!.env.lab.example
+.venv/
+__pycache__/
+.pytest_cache/
+outputs/usage*.jsonl
+outputs/llm_cache.json
+outputs/exhausted.json
+outputs/calibration_cache.json
+outputs/run_*/
+outputs/probe_lesson.md
+data/memory*.db

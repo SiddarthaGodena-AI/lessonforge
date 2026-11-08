@@ -1,0 +1,159 @@
+{
+  "_note": "DRAFT until verified. Run: python scripts/verify_facts.py  (a fact you cannot support from its source must be deleted or edited).",
+  "sources": {
+    "S1": {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020)",
+      "url": "https://arxiv.org/abs/2005.11401"
+    },
+    "S2": {
+      "title": "LangChain: Build a Retrieval Augmented Generation (RAG) App",
+      "url": "https://python.langchain.com/docs/tutorials/rag"
+    },
+    "S3": {
+      "title": "TODO: embeddings / vector store concept page (LangChain or LlamaIndex docs) - add the exact URL you used, or re-point F09-F11 to S2",
+      "url": "TODO"
+    }
+  },
+  "facts": [
+    {
+      "id": "F01",
+      "claim": "RAG was introduced in a 2020 paper by Lewis et al. titled 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks'.",
+      "source": "S1",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F02",
+      "claim": "The paper combines a pretrained generator model (parametric memory) with a searchable index of documents (non-parametric memory) accessed by a neural retriever.",
+      "source": "S1",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F03",
+      "claim": "An LLM learns from text up to a training cutoff date and does not know later events unless given them.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F04",
+      "claim": "An LLM can produce hallucinations: fluent answers that are false or unsupported.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F05",
+      "claim": "In a typical RAG application the LLM's weights are not retrained; retrieved text is added to the prompt at question time.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F06",
+      "claim": "Knowledge can be updated by adding or replacing documents in the knowledge base, without retraining the LLM.",
+      "source": "S1",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F07",
+      "claim": "Documents are split into smaller pieces called chunks before indexing.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F08",
+      "claim": "An LLM can only process a limited amount of text at once (its context window), so only the most relevant chunks are sent.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F09",
+      "claim": "An embedding is a list of numbers (a vector) that represents the meaning of a text; texts with similar meaning get similar vectors.",
+      "source": "S3",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F10",
+      "claim": "Embeddings are stored in an index or vector database that supports similarity search.",
+      "source": "S3",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F11",
+      "claim": "At question time the question is also embedded and the closest chunks (top-k) are retrieved.",
+      "source": "S3",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F12",
+      "claim": "The retrieved chunks and the question are combined into one prompt, and the LLM generates the answer from it.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F13",
+      "claim": "RAG can reduce hallucinations but does not eliminate them.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F14",
+      "claim": "If retrieval returns irrelevant or wrong chunks, the answer can be wrong.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F15",
+      "claim": "A RAG system can show which documents it used, so users can check the source.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F16",
+      "claim": "Common uses: question-answering over company documents, support bots, and 'chat with your PDF' tools.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F17",
+      "claim": "Fine-tuning changes a model's weights, while RAG supplies information at question time without changing weights.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F18",
+      "claim": "Chat tools such as ChatGPT are built on LLMs.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    },
+    {
+      "id": "F19",
+      "claim": "An LLM has not seen a person's or company's private documents unless they are given to it.",
+      "source": "S2",
+      "verified": true,
+      "verified_on": "2026-11-08"
+    }
+  ],
+  "misconceptions_to_reject": [
+    "RAG retrains or updates the LLM's weights.",
+    "RAG guarantees correct answers / removes all hallucinations.",
+    "RAG is the same as a normal search engine.",
+    "RAG gives the LLM live access to the whole internet by default.",
+    "RAG was invented in 2022 / by a specific company other than the Lewis et al. paper authors."
+  ]
+}

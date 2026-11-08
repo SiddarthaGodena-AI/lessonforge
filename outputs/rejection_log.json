@@ -1,0 +1,558 @@
+{
+  "topic": "Introduction to RAG",
+  "status": "PASSED",
+  "attempts_made": 3,
+  "max_attempts": 3,
+  "prompt_version": "v2",
+  "rubric_version": 1,
+  "unverified_facts": [],
+  "models_used": [
+    "gemini:gemini-3.6-flash",
+    "gemini:gemini-3.8-flash",
+    "groq:openai/gpt-oss-120b",
+    "groq:openai/gpt-oss-20b"
+  ],
+  "rules_version": "r0",
+  "attempts": [
+    {
+      "attempt": 1,
+      "prompt_version": "v2",
+      "rubric_version": 1,
+      "results": [
+        {
+          "check_id": "E1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "what/why/how present",
+          "evidence": "",
+          "metrics": {
+            "missing_core": []
+          }
+        },
+        {
+          "check_id": "F1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "sections in required order",
+          "evidence": "",
+          "metrics": {
+            "missing": []
+          }
+        },
+        {
+          "check_id": "F2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "ok",
+          "evidence": "",
+          "metrics": {
+            "questions": 3
+          }
+        },
+        {
+          "check_id": "L1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "995 words (allowed 600-1500)",
+          "evidence": "",
+          "metrics": {
+            "words": 995
+          }
+        },
+        {
+          "check_id": "B1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "avg=10.9 (max 12), longest=21 words (max 25)",
+          "evidence": "",
+          "metrics": {
+            "avg": 10.93,
+            "max": 21
+          }
+        },
+        {
+          "check_id": "B2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "FK overall 5.8 (max 6.5); worst 4-sentence window 9.8 (max 11.0)",
+          "evidence": "",
+          "metrics": {
+            "fk_grade": 5.79,
+            "worst_window_fk": 9.8
+          }
+        },
+        {
+          "check_id": "B3",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "no blacklisted idioms",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "all required terms have short glossary entries",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "every term defined at first use",
+          "evidence": "",
+          "metrics": {
+            "violations": []
+          }
+        },
+        {
+          "check_id": "A1",
+          "verdict": "FAIL",
+          "component": "llm",
+          "reason": "Claim contradicts fact sheet: \"RAG works by retraining the LLM's weights every time a new document is added to the knowledge base.\" - Misconception: RAG does not retrain LLM weights",
+          "evidence": "RAG works by retraining the LLM's weights every time a new document is added to the knowledge base.",
+          "metrics": {
+            "claims": [
+              "RAG works by retraining the LLM's weights every time a new document is added to the knowledge base."
+            ]
+          }
+        },
+        {
+          "check_id": "A2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "25 claims checked, none unsupported",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "A3",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson includes a clear statement of where the analogy stops being accurate.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "D1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "A complete worked example is provided with a specific question, retrieved chunk, prompt, and final answer.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "D2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The analogy uses an open\u2011book exam, a familiar experience for Indian 12th\u2011grade students.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "B3",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson avoids idioms, slang, or culturally specific references that would be unfamiliar to a non\u2011English\u2011medium Indian 12th\u2011grader.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C1",
+          "verdict": "FAIL",
+          "component": "llm",
+          "reason": "The term \"training cutoff\" is used without a plain\u2011language definition. Adding a brief explanation such as \"the date after which the model was not trained on any new data\" would fix it.",
+          "evidence": "It only knows facts up to its training cutoff date.",
+          "metrics": {}
+        },
+        {
+          "check_id": "F1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "All concepts are introduced before they are needed; no paragraph relies on an idea explained later.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "E2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "All ten key concepts from the blueprint are explained in the lesson, and all required terms appear.",
+          "evidence": "",
+          "metrics": {}
+        }
+      ],
+      "fix_brief": "- [CRITICAL] A1 - No claim contradicts the fact sheet\n  Problem: Claim contradicts fact sheet: \"RAG works by retraining the LLM's weights every time a new document is added to the knowledge base.\" - Misconception: RAG does not retrain LLM weights\n  Evidence: \"RAG works by retraining the LLM's weights every time a new document is added to the knowledge base.\"\n  How to fix: Remove or correct the claim so it agrees with the fact sheet. Do not repeat the false idea.\n- [CRITICAL] C1 - Every technical term has a short plain-language definition\n  Problem: The term \"training cutoff\" is used without a plain\u2011language definition. Adding a brief explanation such as \"the date after which the model was not trained on any new data\" would fix it.\n  Evidence: \"It only knows facts up to its training cutoff date.\"\n  How to fix: Give the term a plain-language definition: bold at first use AND a Glossary entry of at most 25 words.",
+      "diff_summary": "",
+      "regressions": [],
+      "sabotage_note": "DELIBERATE SABOTAGE 'factual' injected after generation: \"RAG works by retraining the LLM's weights every time a new document is added to the knowle...\"",
+      "llm_skipped": false,
+      "generator_model": "gemini:gemini-3.8-flash",
+      "failed_ids": [
+        "A1",
+        "C1"
+      ],
+      "passed": false
+    },
+    {
+      "attempt": 2,
+      "prompt_version": "v2",
+      "rubric_version": 1,
+      "results": [
+        {
+          "check_id": "E1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "what/why/how present",
+          "evidence": "",
+          "metrics": {
+            "missing_core": []
+          }
+        },
+        {
+          "check_id": "F1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "sections in required order",
+          "evidence": "",
+          "metrics": {
+            "missing": []
+          }
+        },
+        {
+          "check_id": "F2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "ok",
+          "evidence": "",
+          "metrics": {
+            "questions": 3
+          }
+        },
+        {
+          "check_id": "L1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "1026 words (allowed 600-1500)",
+          "evidence": "",
+          "metrics": {
+            "words": 1026
+          }
+        },
+        {
+          "check_id": "B1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "avg=11.2 (max 12), longest=25 words (max 25)",
+          "evidence": "",
+          "metrics": {
+            "avg": 11.15,
+            "max": 25
+          }
+        },
+        {
+          "check_id": "B2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "FK overall 5.8 (max 6.5); worst 4-sentence window 9.1 (max 11.0)",
+          "evidence": "",
+          "metrics": {
+            "fk_grade": 5.8,
+            "worst_window_fk": 9.14
+          }
+        },
+        {
+          "check_id": "B3",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "no blacklisted idioms",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "all required terms have short glossary entries",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "every term defined at first use",
+          "evidence": "",
+          "metrics": {
+            "violations": []
+          }
+        },
+        {
+          "check_id": "A1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "25 claims checked, none contradicts fact sheet",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "A2",
+          "verdict": "FAIL",
+          "component": "llm",
+          "reason": "Claim unsupported: \"Retraining an LLM with new facts takes huge time and money.\" - Fact sheet does not address cost/time of retraining",
+          "evidence": "Normally, training an LLM again with new facts takes huge time and money.",
+          "metrics": {
+            "claims": [
+              "Retraining an LLM with new facts takes huge time and money."
+            ]
+          }
+        },
+        {
+          "check_id": "A3",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson includes a clear statement of where the analogy stops being accurate.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "D1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "A complete worked example is provided with a specific question, retrieved chunk, prompt, and final answer.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "D2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The analogy uses an open\u2011book exam, a scenario familiar to typical Indian 12th\u2011grade students.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "B3",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson contains no idioms, slang, or culturally specific references that would be unfamiliar to a non\u2011English\u2011medium Indian 12th\u2011grader.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "All required technical terms (LLM, hallucination, RAG, knowledge base, chunk, embedding, retrieval, prompt) are defined in the Glossary section.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "F1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson presents concepts in logical order; each idea is introduced before it is used in later sections.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "E2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "All ten key concepts are explicitly explained in the lesson text, including LLM training cutoff, hallucination, knowledge base, chunking, embeddings, retrieval, augmentation, generation, limits, and the fact that RAG does not retrain the model.",
+          "evidence": "",
+          "metrics": {}
+        }
+      ],
+      "fix_brief": "- [CRITICAL] A2 - No unsupported technical claim stated as fact\n  Problem: Claim unsupported: \"Retraining an LLM with new facts takes huge time and money.\" - Fact sheet does not address cost/time of retraining\n  Evidence: \"Normally, training an LLM again with new facts takes huge time and money.\"\n  How to fix: Delete the unsupported claim, or rewrite it using only fact-sheet facts. Avoid dates, names, numbers and words like always/never/every.",
+      "diff_summary": "changed sections: ['the problem', 'what is rag?', 'glossary']; added: none; removed: none; unchanged: 7 of 10 sections; length 1035 -> 1066 words",
+      "regressions": [
+        "A2"
+      ],
+      "sabotage_note": "",
+      "llm_skipped": false,
+      "generator_model": "gemini:gemini-3.8-flash",
+      "failed_ids": [
+        "A2"
+      ],
+      "passed": false
+    },
+    {
+      "attempt": 3,
+      "prompt_version": "v2",
+      "rubric_version": 1,
+      "results": [
+        {
+          "check_id": "E1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "what/why/how present",
+          "evidence": "",
+          "metrics": {
+            "missing_core": []
+          }
+        },
+        {
+          "check_id": "F1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "sections in required order",
+          "evidence": "",
+          "metrics": {
+            "missing": []
+          }
+        },
+        {
+          "check_id": "F2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "ok",
+          "evidence": "",
+          "metrics": {
+            "questions": 3
+          }
+        },
+        {
+          "check_id": "L1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "1013 words (allowed 600-1500)",
+          "evidence": "",
+          "metrics": {
+            "words": 1013
+          }
+        },
+        {
+          "check_id": "B1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "avg=11.1 (max 12), longest=25 words (max 25)",
+          "evidence": "",
+          "metrics": {
+            "avg": 11.13,
+            "max": 25
+          }
+        },
+        {
+          "check_id": "B2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "FK overall 5.8 (max 6.5); worst 4-sentence window 9.1 (max 11.0)",
+          "evidence": "",
+          "metrics": {
+            "fk_grade": 5.8,
+            "worst_window_fk": 9.14
+          }
+        },
+        {
+          "check_id": "B3",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "no blacklisted idioms",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C1",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "all required terms have short glossary entries",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C2",
+          "verdict": "PASS",
+          "component": "det",
+          "reason": "every term defined at first use",
+          "evidence": "",
+          "metrics": {
+            "violations": []
+          }
+        },
+        {
+          "check_id": "A1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "25 claims checked, none contradicts fact sheet",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "A2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "25 claims checked, none unsupported",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "A3",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson explicitly states where the analogy stops: \"A human student understands the whole book over time. A computer only matches numbers to pull small text pieces without real human understanding.\"",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "D1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The worked example includes a specific question, a specific retrieved chunk, and a specific final answer.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "D2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The analogy uses an open\u2011book exam, a familiar context for Indian 12th\u2011grade students.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "B3",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "The lesson contains no idioms, slang, or culture\u2011specific references that a non\u2011English\u2011medium Indian 12th\u2011grader would likely not understand.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "C1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "Every technical term used in the lesson is accompanied by a plain\u2011language definition, either in the main text or in the glossary.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "F1",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "Each paragraph introduces concepts before they are used later; no idea depends on a later explanation.",
+          "evidence": "",
+          "metrics": {}
+        },
+        {
+          "check_id": "E2",
+          "verdict": "PASS",
+          "component": "llm",
+          "reason": "All key concepts from the blueprint are explained in the lesson.",
+          "evidence": "",
+          "metrics": {}
+        }
+      ],
+      "fix_brief": "",
+      "diff_summary": "changed sections: ['why it matters']; added: none; removed: none; unchanged: 9 of 10 sections; length 1066 -> 1053 words",
+      "regressions": [],
+      "sabotage_note": "",
+      "llm_skipped": false,
+      "generator_model": "gemini:gemini-3.6-flash",
+      "failed_ids": [],
+      "passed": true
+    }
+  ]
+}

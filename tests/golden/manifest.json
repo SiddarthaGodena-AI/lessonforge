@@ -1,0 +1,121 @@
+{
+  "good": "good_lesson.md",
+  "flawed": {
+    "long_sentence": {
+      "file": "flawed/long_sentence.md",
+      "tier": "det",
+      "expected_fail": [
+        "B1"
+      ],
+      "also_ok": []
+    },
+    "jargon_dump": {
+      "file": "flawed/jargon_dump.md",
+      "tier": "det",
+      "expected_fail": [
+        "B1",
+        "B2"
+      ],
+      "also_ok": [
+        "C1",
+        "F1"
+      ]
+    },
+    "forward_reference": {
+      "file": "flawed/forward_reference.md",
+      "tier": "det",
+      "expected_fail": [
+        "C2"
+      ],
+      "also_ok": [
+        "F1"
+      ]
+    },
+    "missing_glossary_entry": {
+      "file": "flawed/missing_glossary_entry.md",
+      "tier": "det",
+      "expected_fail": [
+        "C1"
+      ],
+      "also_ok": []
+    },
+    "missing_why": {
+      "file": "flawed/missing_why.md",
+      "tier": "det",
+      "expected_fail": [
+        "E1"
+      ],
+      "also_ok": [
+        "F1"
+      ]
+    },
+    "no_check_questions": {
+      "file": "flawed/no_check_questions.md",
+      "tier": "det",
+      "expected_fail": [
+        "F2"
+      ],
+      "also_ok": [
+        "F1"
+      ]
+    },
+    "idiom": {
+      "file": "flawed/idiom.md",
+      "tier": "det",
+      "expected_fail": [
+        "B3"
+      ],
+      "also_ok": []
+    },
+    "factual_error": {
+      "file": "flawed/factual_error.md",
+      "tier": "llm",
+      "expected_fail": [
+        "A1"
+      ],
+      "also_ok": [
+        "E2"
+      ]
+    },
+    "unsupported_claim": {
+      "file": "flawed/unsupported_claim.md",
+      "tier": "llm",
+      "expected_fail": [
+        "A2"
+      ],
+      "also_ok": []
+    },
+    "vague_example": {
+      "file": "flawed/vague_example.md",
+      "tier": "llm",
+      "expected_fail": [
+        "D1"
+      ],
+      "also_ok": []
+    },
+    "no_analogy_limits": {
+      "file": "flawed/no_analogy_limits.md",
+      "tier": "llm",
+      "expected_fail": [
+        "A3"
+      ],
+      "also_ok": []
+    },
+    "culture_reference": {
+      "file": "flawed/culture_reference.md",
+      "tier": "llm",
+      "expected_fail": [
+        "B3"
+      ],
+      "also_ok": []
+    },
+    "missing_concept_chunk_reason": {
+      "file": "flawed/missing_concept_chunk_reason.md",
+      "tier": "llm",
+      "expected_fail": [
+        "E2"
+      ],
+      "also_ok": []
+    }
+  }
+}

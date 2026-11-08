@@ -1,0 +1,76 @@
+{
+  "topic": "Introduction to RAG (Retrieval-Augmented Generation)",
+  "learner": "17-18 yr old Indian 12th-grader, limited English, no technical background",
+  "objectives": [
+    "Explain in plain words what RAG is",
+    "Explain why LLMs alone give outdated or made-up answers",
+    "Describe the steps of a RAG system in order",
+    "Walk through one concrete example",
+    "Know what RAG cannot do"
+  ],
+  "required_terms": [
+    "LLM",
+    "hallucination",
+    "RAG",
+    "knowledge base",
+    "chunk",
+    "embedding",
+    "retrieval",
+    "prompt"
+  ],
+  "key_concepts": [
+    {
+      "id": "K1",
+      "concept": "LLMs only know their training data (cutoff) and lack private data"
+    },
+    {
+      "id": "K2",
+      "concept": "Hallucination: fluent but false answers"
+    },
+    {
+      "id": "K3",
+      "concept": "Knowledge base of documents"
+    },
+    {
+      "id": "K4",
+      "concept": "Chunking, and WHY (LLM can read only limited text at once)"
+    },
+    {
+      "id": "K5",
+      "concept": "Embeddings: meaning as numbers; similar meaning = similar numbers"
+    },
+    {
+      "id": "K6",
+      "concept": "Retrieval: find the closest chunks to the question"
+    },
+    {
+      "id": "K7",
+      "concept": "Augmentation: put question + chunks into the prompt"
+    },
+    {
+      "id": "K8",
+      "concept": "Generation: LLM answers using the provided text"
+    },
+    {
+      "id": "K9",
+      "concept": "Limits: RAG reduces but does not remove errors; bad retrieval gives bad answers"
+    },
+    {
+      "id": "K10",
+      "concept": "RAG does not retrain the model; update knowledge by changing documents"
+    }
+  ],
+  "short_name": "RAG",
+  "section_headings": [
+    "The Problem",
+    "What Is RAG?",
+    "Why It Matters",
+    "How It Works",
+    "Worked Example",
+    "Analogy",
+    "Glossary",
+    "Common Mistakes",
+    "Recap",
+    "Check Your Understanding"
+  ]
+}
