@@ -1,4 +1,4 @@
-# Evaluator Calibration
+﻿# Evaluator Calibration
 
 Mode: deterministic tier only (`python scripts/calibrate.py --det-only`). Each seeded lesson = the good lesson with exactly ONE flaw.
 The LLM-judge tier was NOT run in this calibration (free-tier daily quota exhausted); its rows are marked NOT RUN, not "missed".
