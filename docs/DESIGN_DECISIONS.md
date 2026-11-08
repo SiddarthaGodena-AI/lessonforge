@@ -67,3 +67,4 @@ What calibration actually found (all fixed, all in git history):
 ## 9. What I would build next
 Live-retrieval grounding for arbitrary topics; a Hindi/Telugu glossary pass; multi-judge ensembles with disagreement tracking; cost and latency dashboards; embedding-based retrieval of learned rules.
 
+
