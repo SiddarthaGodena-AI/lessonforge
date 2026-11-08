@@ -12,3 +12,6 @@ outputs/calibration_cache.json
 outputs/run_*/
 outputs/probe_lesson.md
 data/memory*.db
+
+docs/LOOM_SCRIPT.md
+docs/SUBMISSION_CHECKLIST.md
